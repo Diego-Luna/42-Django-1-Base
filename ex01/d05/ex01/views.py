@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, world. You're at the ex01 index.")
+def django_view(request):
+    return render(request, 'pages/django.html')
+
+def display_view(request):
+    return render(request, 'pages/display.html')
+
+def templates_view(request):
+    return render(request, 'pages/templates.html')

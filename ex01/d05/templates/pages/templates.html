@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Ex01: Template engine{% endblock %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ex01/style2.css' %}">
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Django Template Engine</h1>
+    
+    <section>
+        <h2>1. Template Blocks</h2>
+        <p>Blocks define areas that child templates can override:</p>
+        <pre>{% verbatim %}
+{% block content %}
+Default content
+{% endblock %}
+        {% endverbatim %}</pre>
+    </section>
+
+    <section>
+        <h2>2. For Loops</h2>
+        <p>Iterate through lists and other iterables:</p>
+        <pre>{% verbatim %}
+{% for item in items %}
+{{ item }}
+{% empty %}
+No items found
+{% endfor %}
+        {% endverbatim %}</pre>
+    </section>
+
+    <section>
+        <h2>3. If Statements</h2>
+        <p>Conditional content display:</p>
+        <pre>{% verbatim %}
+{% if condition %}
+Show this
+{% elif other_condition %}
+Show that
+{% else %}
+Default content
+{% endif %}
+        {% endverbatim %}</pre>
+    </section>
+
+    <section>
+        <h2>4. Context Variables</h2>
+        <p>Display data passed from views:</p>
+        <pre>{% verbatim %}
+{{ variable }}
+{{ object.attribute }}
+{{ dictionary.key }}
+        {% endverbatim %}</pre>
+    </section>
+</div>
+{% endblock %}

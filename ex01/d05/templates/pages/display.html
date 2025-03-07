@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Ex01: Display process of a static page{% endblock %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ex01/style1.css' %}">
+{% endblock %}
+
+{% block content%}
+    <div>
+        <h1>Static Page Display Process in Django</h1>
+        
+        <div class="process-section">
+            <h2>Step-by-Step Process</h2>
+            <ol>
+                <li>
+                    <strong>HTTP Request</strong>
+                    <p>User enters URL in browser (e.g., /ex01/display) which sends HTTP request to Django server</p>
+                </li>
+                
+                <li>
+                    <strong>URL Pattern Matching</strong>
+                    <p>Django's URLconf (urls.py) matches the URL pattern to corresponding view function</p>
+                </li>
+                
+                <li>
+                    <strong>View Processing</strong>
+                    <p>View function (e.g., display_view) processes the request and prepares context data</p>
+                </li>
+                
+                <li>
+                    <strong>Template Loading</strong>
+                    <p>Django loads the template file (e.g., display.html) from templates directory</p>
+                </li>
+                
+                <li>
+                    <strong>Template Rendering</strong>
+                    <p>Template engine processes template tags, filters and renders with context data</p>
+                </li>
+                
+                <li>
+                    <strong>HTTP Response</strong>
+                    <p>Django sends the rendered HTML back to browser as HTTP response</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="example-section">
+            <h2>Example Code Flow</h2>
+            <pre>
+    # URL Configuration (urls.py)
+    path('display/', views.display_view, name='display')
+
+    # View Function (views.py)
+    def display_view(request):
+    return render(request, 'display.html')
+            </pre>
+        </div>
+    </div>
+
+{% endblock %}
