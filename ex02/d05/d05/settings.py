@@ -54,6 +54,9 @@ ROOT_URLCONF = 'd05.urls'
 
 import os
 
+# EX02_LOG_PATH = os.path.join(BASE_DIR, 'ex02', 'logs.txt')
+EX02_LOG_PATH = os.path.join(BASE_DIR, "templates", "ex02",  "logs.txt")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
