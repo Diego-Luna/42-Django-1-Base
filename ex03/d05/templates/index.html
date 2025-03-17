@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load custom_filters %} 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03</title>
+    <!-- Todo: The table boxes must have the following specifications:
+    Height: 40 pixels.
+    Width: 80 pixels.
+    Background color: a color shade that matches the column.
+    The table must display the shade of each color as to obtain a 50 lines shading.
+    10 lines for each color.
+    -->
+
+    <style>
+        table {
+            /* width: 100%; */
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td{
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h3>ex03</h3>
+    
+    
+    <table>
+        <tr>
+            {% for name in color_names %}
+            <th>{{ name }}</th>
+            {% endfor %}
+        </tr>
+        
+        {% for shade in colors_shades %}
+            <tr>
+                {% for color_name in color_names %}
+                    <td style="background-color: {{ shade|get_item:color_name }}"></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
